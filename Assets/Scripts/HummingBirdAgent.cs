@@ -248,11 +248,13 @@ public class HummingBirdAgent : Agent
             {
                 Flower randomFlower = _flowerArea.Flowers[Random.Range(0, _flowerArea.Flowers.Count)];
 
-                float distanceFromFlower = Random.Range(.2f, .3f);
+                float distanceFromFlower = Random.Range(.04f, .2f);
                 potentialPosition = randomFlower.transform.position + randomFlower.FlowerUpVector * distanceFromFlower;
 
                 Vector3 toFlower = randomFlower.FlowerCenterPosition - potentialPosition;
                 potentialRotation = Quaternion.LookRotation(toFlower, Vector3.up);
+                Debug.Log("----- in front of Flower ------- " + distanceFromFlower);
+                
             }
             else
             {
@@ -302,7 +304,7 @@ public class HummingBirdAgent : Agent
                 {
                     float bones = .02f * Mathf.Clamp01(Vector3.Dot(transform.forward.normalized,
                         -_nearestFlower.FlowerUpVector.normalized));
-                    AddReward(0.1f + bones);
+                    AddReward(0.01f + bones);
                 }
 
                 if (!flower.HasNectar)
