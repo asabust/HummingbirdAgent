@@ -1,6 +1,7 @@
 # HummingbirdAgent
 
 A reinforcement learning project with Unity ML-Agent.
+![Image of training](/results/result.GIF)
 
 ## Training with python
 
